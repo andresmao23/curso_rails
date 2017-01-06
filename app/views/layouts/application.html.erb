@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @titulo %></title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <%= link_to image_tag("rails_logo.png", :size=>"100x100"), {:action=>"index"} %>
+        </div>
+        <div class="col-md-6 col-md-offset-4 margen">
+          <ul class="nav nav-pills">
+            <li class="<%= active_class(root_path) %>"><%= link_to "Inicio", :action => "index" %></li>
+            <li class="<%= active_class('/home/servicios') %>"><%= link_to "Servicios", :action => "servicios" %></li>
+            <li class="<%= active_class('/home/quienes_somos')%>"><%= link_to "Quienes Somos", :action => "quienes_somos" %></li>
+            <li class="<%= active_class('/home/contacto')%>"><%= link_to "Contácto", :action => "contacto" %></li>
+            <li class="<%= active_class('/home/localizacion')%>"><%= link_to "Localización", :action => "localizacion" %></li>
+          </ul>
+        </div>
+      </div> 
+
+      <div class="row espacio">
+        <div class="col-md-4">
+          <h3>Curso de Ruby on Rails</h3>
+          <p>By Santiago POnce</p>
+          <p></p>
+          <%= link_to "Entrar", {:action=>"index"}, :class=>"btn btn-large btn-primary" %>
+        </div>
+
+        <div class="col-md-6 col-md-offset-2">
+          <%= image_tag "imagen_mac.png", :size=>"600x300" %>
+        </div>
+      </div>
+
+      <div class="row espacio">
+          <div class="col-md-4">
+            <h2>¿Quiénes somos?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque voluptates nam placeat perspiciatis reprehenderit et qui, similique consectetur, ducimus iure hic numquam sit! Asperiores dicta minus, doloribus nam molestias facere.</p>
+            <%= link_to "Leer más", {:action=>"quienes_somos"}, :class=>"btn btn-large btn-primary" %>
+          </div>
+          <div class="col-md-4">
+            <h2>Localización</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque voluptates nam placeat perspiciatis reprehenderit et qui, similique consectetur, ducimus iure hic numquam sit! Asperiores dicta minus, doloribus nam molestias facere.</p>
+            <%= link_to "Leer más", {:action=>"localizacion"}, :class=>"btn btn-large btn-primary" %>
+          </div>
+          <div class="col-md-4">
+            <h2>Servicios</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque voluptates nam placeat perspiciatis reprehenderit et qui, similique consectetur, ducimus iure hic numquam sit! Asperiores dicta minus, doloribus nam molestias facere.</p>
+            <%= link_to "Leer más", {:action=>"servicios"}, :class=>"btn btn-large btn-primary" %>
+          </div>
+      </div>
+
+
+      <%= yield %>
+
+
+    </div>    
+
+  </body>
+</html>
